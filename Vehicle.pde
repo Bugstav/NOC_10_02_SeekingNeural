@@ -5,16 +5,16 @@
 class Vehicle {
   
   // Vehicle now has a brain!
-  Perceptron brain;
+  Perceptron brain;  //forbereder klassen peceptron, kalder den via brain
   
-  PVector position;
+  PVector position;  //en masse variabler af typen vector og float
   PVector velocity;
   PVector acceleration;
   float r;
   float maxforce;    // Maximum steering force
   float maxspeed;    // Maximum speed
 
-  Vehicle(int n, float x, float y) {
+  Vehicle(int n, float x, float y) {  //constructeren vehicle til objektet
     brain = new Perceptron(n, 0.001); // Create a Perceptron with 'n' inputs and a learning constant of 0.001
     acceleration = new PVector(0, 0);
     velocity = new PVector(0, 0);
@@ -25,7 +25,7 @@ class Vehicle {
   }
 
   // Method to update the position and behavior of the vehicle
-  void update() {
+  void update() {  //funktionen update under klassen
     // Update velocity
     velocity.add(acceleration);
     // Limit speed to the maximum speed
@@ -40,13 +40,13 @@ class Vehicle {
   }
 
   // Method to apply a force to the vehicle
-  void applyForce(PVector force) {
+  void applyForce(PVector force) {  //funktionen applyForce
     // We could add mass here if we want A = F / M
     acceleration.add(force);
   }
   
   // Method where the vehicle's brain processes information and determines steering
-  void steer(ArrayList<PVector> targets) {
+  void steer(ArrayList<PVector> targets) {  //funktionen steer
     // Make an array of forces
     PVector[] forces = new PVector[targets.size()];
     
@@ -83,7 +83,7 @@ class Vehicle {
   }
     
   // Method to display the vehicle
-  void display() {
+  void display() {  //funktionen display
     // Draw a triangle rotated in the direction of velocity
     float theta = velocity.heading2D() + PI/2;
     fill(175);
